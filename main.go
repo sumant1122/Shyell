@@ -27,6 +27,16 @@ func main() {
 		}
 
 		parts := strings.Split(cmd_string, " ")
+
+		switch parts[0] { // 'cd' to path but not more than one.
+		case "cd":
+			if len(parts) < 2 {
+				fmt.Errorf("Error")
+			}
+
+			os.Chdir(parts[1])
+		}
+
 		cmd := parts[0]
 		args := parts[1:]
 
